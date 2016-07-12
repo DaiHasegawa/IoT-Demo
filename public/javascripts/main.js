@@ -1,15 +1,14 @@
 
 $(document).ready(function () {
-	var chart = c3.generate({
+  var chart_data = [['Temperature', 0], ['Humidity', 0]];
+  
+  var chart_options = {
     bindTo: '#chart',
     data: {
-	    columns: [
-        ['Temperature'],
-        ['Humidity'],
-      ],
+	    columns: [],
       axes: {
-        data1: 'y',
-        data2: 'y2',
+        Temperature: 'y',
+        Humidity: 'y2',
       },
       type: 'spline',
     },
@@ -28,25 +27,26 @@ $(document).ready(function () {
         show: true,
       },
     },
-  });
+  };
 
-  var chart_data = [['Temperature'], ['Humidity']];
+  chart_options.data.columns = chart_data;
+
+  var chart = c3.generate(chart_options);
 
   setInterval(function () {
     $.ajax({
-      url: '/sensors',
+      url: '/sensor',
       method: 'GET',
       dataType: 'json'
     }).done(function (response_data) {
-      chart_data[0].push(response_data.temperature.value);
-      chart_data[1].push(response_data.humidity.value);
-      if (chart_data.length > 6) {
-        chard_data[0].splice(1, 1);
+      chart_data[0].push(parseFloat(response_data.temperature));
+      chart_data[1].push(parseFloat(response_data.humidity));
+      if (chart_data[0].length > 11) {
+        chart_data[0].splice(1, 1);
         chart_data[1].splice(1, 1);
       }
-      chart.load({
-        columns: chart_data
-      });
+      chart_options.data.columns = chart_data;
+      chart = c3.generate(chart_options);
     });
   }, 1000);
 });
