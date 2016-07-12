@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var sendor = require('./routes/sensor');
+var sensor = require('./routes/sensor');
 
 var app = express();
 
