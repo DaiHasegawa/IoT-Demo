@@ -14,12 +14,16 @@ $(document).ready(function () {
     },
     axis: {
       y: {
+        min: 10,
+        max: 40,
         label: {
           text: 'Temperature',
           position: 'outer-middle',
         },
       },
       y2: {
+        min: 20,
+        max: 100,
         label: {
           text: 'Humidity',
           position: 'outer-middle',
@@ -41,7 +45,7 @@ $(document).ready(function () {
     }).done(function (response_data) {
       chart_data[0].push(parseFloat(response_data.temperature));
       chart_data[1].push(parseFloat(response_data.humidity));
-      if (chart_data[0].length > 11) {
+      if (chart_data[0].length > 31) {
         chart_data[0].splice(1, 1);
         chart_data[1].splice(1, 1);
       }
