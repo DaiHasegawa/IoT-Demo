@@ -14,7 +14,7 @@ $(document).ready(function () {
     },
     axis: {
       y: {
-        min: 10,
+        min: 20,
         max: 40,
         label: {
           text: 'Temperature',
@@ -22,8 +22,8 @@ $(document).ready(function () {
         },
       },
       y2: {
-        min: 20,
-        max: 100,
+        min: 30,
+        max: 80,
         label: {
           text: 'Humidity',
           position: 'outer-middle',
