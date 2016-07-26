@@ -10,7 +10,7 @@
 ## Installation
 * npm install
 
-## Start Server
+## Starting Server
 * sudo npm start
 
 ## Realtime Visualization
