@@ -8,13 +8,25 @@
 * BCM2835
 
 ## Installation
-* npm install
+```sh
+npm install
+```
 
 ## Starting Server
-* sudo npm start
+```sh
+//start foreground
+sudo npm start
+// stop
+`Ctrl + c`
+//start background
+sudo forever start bin/www
+//stop
+sudo forever list
+sudo forever stop `uid (eg. oL-2)`
+```
 
 ## Realtime Visualization
-* http://raspberrypi.local:3000/
+http://raspberrypi.local:3000/
 
 ## TODO: Data Analisys
 
