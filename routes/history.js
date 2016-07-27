@@ -1,10 +1,10 @@
 var express = require('express');
-var history = express.Router();
+var router = express.Router();
 
 /* GET home page. */
-history.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('history', { title: 'Express' });
 });
 
-module.exports = history;
+module.exports = router;
 

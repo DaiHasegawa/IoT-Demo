@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var sensor = require('./routes/sensor');
 var history = require('./routes/history');
+var stored = require('./routes/stored');
 
 var temperature = require('./models/temperature');
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/sensor', sensor);
 app.use('/history', history);
+app.use('/stored', stored);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -63,7 +65,7 @@ app.use(function(err, req, res, next) {
 
 // save sensor data into db
 if (temperature.initialize()) {
-    temperature.save();
+    temperature.create();
 } else {
     console.warn('Failed to initialize sensor');
 }
