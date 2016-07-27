@@ -26,7 +26,7 @@ var temperature  = {
     
     setTimeout(function () {
       temperature.create();
-    }, 2000);
+    }, 60000);
   },
   index: function () {
 

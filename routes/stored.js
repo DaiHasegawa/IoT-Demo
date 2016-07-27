@@ -9,10 +9,9 @@ router.get('/', function(req, res, next) {
   
   /* database  */
   temperature.index().then(function(results){
-    console.log(results);
+    res.json( {data:results} );
   });
 
-  res.json( {data:2} );
 });
 
 module.exports = router;
