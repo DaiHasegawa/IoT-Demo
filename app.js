@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var sensor = require('./routes/sensor');
 
+var temperature = require('./models/temperature');
+
 var app = express();
 
 // view engine setup
@@ -57,4 +59,12 @@ app.use(function(err, req, res, next) {
 });
 
 
+// save sensor data into db
+if (temperature.initialize()) {
+    temperature.save();
+} else {
+    console.warn('Failed to initialize sensor');
+}
+
 module.exports = app;
+
