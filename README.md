@@ -16,10 +16,13 @@ npm install
 ```sh
 //start foreground
 sudo npm start
+
 // stop
 `Ctrl + c`
+
 //start background
 sudo forever start bin/www
+
 //stop
 sudo forever list
 sudo forever stop `uid (eg. oL-2)`
