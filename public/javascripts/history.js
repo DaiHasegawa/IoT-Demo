@@ -1,13 +1,13 @@
 $(document).ready(function () {
   var chart_data = [['x'], ['Temperature'], ['Humidity']];
-  
+
   var chart_options = {
     bindTo: '#chart',
     data: {
       x: 'x',
       xFormat: '%Y-%m-%d %H:%M:%S',
       columns: [],
-      axes: {    
+      axes: {
         Temperature: 'y',
         Humidity: 'y2',
       },
@@ -54,7 +54,7 @@ $(document).ready(function () {
       if (data.temperature > 0 && data.temperature < 50){
         chart_data[0].push(data.date);
         chart_data[1].push(data.temperature);
-        chart_data[2].push(data.humidity)
+        chart_data[2].push(data.humidity);
       }
     });
     chart_options.data.columns = chart_data;
